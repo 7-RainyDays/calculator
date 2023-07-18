@@ -1,21 +1,13 @@
-const keys = document.querySelectorAll('.keys');
+const touchpad = document.getElementById('touchpad');
 
-function handleButtonClick(event) {
-  const button = event.target;
-  const buttonValue = button.dataset.value;
-  console.log(`Button Value: ${buttonValue}`);
+function handleButtonClick(event){
+    const button = event.target;
+    const value = button.textContent
+    console.log(`Button Value: ${value}`);
 }
 
-keys.addEventListener('click', function (event) {
-  const soloKeys = document.querySelectorAll('solo-keys');
-  soloKeys.forEach((button) => {
-    if(button === event.target) {
+touchpad.addEventListener('click', function(event){
+    if (event.target.classList.contains('solo-key')){
         handleButtonClick(event);
     }
-  });
-    console.log('I clicked a button');
-});
-
-function hello(){
-    console.log("Hello World")
-}
+})
