@@ -1,0 +1,42 @@
+body {
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+}
+
+#calculator{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1 0 1;
+    width:400px;
+    height: 600px;
+    background-color: lightblue;
+    margin: 50px;
+}
+
+#screen {
+    color: white;
+    background-color: black;
+}
+
+#touchpad {
+    width: 80%;
+    height: 20%;
+    background-color: grey;
+}
+
+.keys{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.solo-keys{
+    display: flex;
+    flex: 1 0 1;
+    justify-content: center;
+    width: 20%;
+    border: 1px solid black;
+}
