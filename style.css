@@ -47,7 +47,7 @@ body {
     height: 100%;
 }
 
-.solo-key{
+.solo-key, .math-key, .num-key, .result-key, .delete-key, .delete-all-key {
     display: flex;
     flex: 1 0 1;
     justify-content: center;
