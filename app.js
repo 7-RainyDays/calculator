@@ -9,6 +9,16 @@ function handleButtonClick(event){
     return current;
 }
 
+function handleKeyboardInput(event) {
+    const keyPressed = event.key;
+    const allowedChars = /[0-9+\-*/]/;
+    if (allowedChars.test(keyPressed)) {
+      current += keyPressed;
+      update_screen();
+    }
+  }
+  
+
 touchpad.addEventListener('click', function(event){
     if (event.target.classList[0].endsWith('-key')){
         const pressedKeyGroup = event.target.classList[0];
@@ -61,3 +71,5 @@ function fetch_result() {
             update_screen();
     })
 }
+
+document.addEventListener('keydown', handleKeyboardInput);
