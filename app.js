@@ -1,5 +1,5 @@
 const touchpad = document.getElementById('touchpad');
-const screen = document.querySelector('#screen p');
+const screen = document.querySelector('#screen span');
 let baseURL = "http://api.mathjs.org/v4/?expr=";
 let current = "";
 
@@ -67,7 +67,7 @@ function fetch_result() {
     fetch('http://api.mathjs.org/v4/?expr='+ encoded)
         .then(response => response.json())
         .then(data => {
-            current = data;
+            current = parseFloat(data.toFixed(10));
             update_screen();
     })
 }
