@@ -11,7 +11,7 @@ function handleButtonClick(event){
 
 function handleKeyboardInput(event) {
     const keyPressed = event.key;
-    const allowedChars = /[0-9+\-*/]/;
+    const allowedChars = /^[\d+\-*/()]+$/;
     if (allowedChars.test(keyPressed)) {
       current += keyPressed;
       update_screen();
