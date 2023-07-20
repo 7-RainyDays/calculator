@@ -64,12 +64,25 @@ function handle_delete(){
 
 function fetch_result() {
     const encoded = encodeURIComponent(current);
-    fetch('http://api.mathjs.org/v4/?expr='+ encoded)
-        .then(response => response.json())
-        .then(data => {
-            current = parseFloat(data.toFixed(10));
-            update_screen();
+    fetch('http://api.mathjs.org/v4/?expr=' + encoded)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('API request failed');
+      }
+      return response.json();
     })
+    .then(data => {
+      if (typeof data === 'number') {
+        current = parseFloat(data.toFixed(10));
+      } else {
+        current = 0;
+      }
+      update_screen();
+    })
+    .catch(error => {
+      alert('Invalid Input:', error);
+    });
+
 }
 
 document.addEventListener('keydown', handleKeyboardInput);
